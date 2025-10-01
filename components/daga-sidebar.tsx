@@ -76,7 +76,7 @@ function AppSidebar() {
                 <AtomIcon className="text-primary" />
                 <h2 className="text-2xl font-bold text-foreground">Daga AI</h2>
             </div>
-            <SidebarTrigger/>
+            <SidebarTrigger />
         </div>
         <div className="mx-4 mt-4 border border-border rounded-xl p-2 flex items-center gap-2 bg-muted/50">
             <Search className="h-5 w-5 text-muted-foreground"/>
