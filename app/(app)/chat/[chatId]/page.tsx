@@ -1,23 +1,117 @@
 import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { ArrowUp, Paperclip } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
   return (
-   <div className="p-6">
-    <div className="app-container grid gap-4">
-      <div className="flex justify-between items-center w-full">
-        <span>Explain Quantum Computing</span>
-        <div className="flex items-center gap-2">
-          <Link href="/login">
-            <Button>Signup / Login</Button>
-          </Link>
+      <div className="flex flex-col h-screen gap-4">
+        <div className="flex justify-between items-center w-full py-4 px-6">
+          <span>Explain Quantum Computing</span>
+          <div className="flex items-center gap-2">
+            <Link href="/login">
+              <Button>Signup / Login</Button>
+            </Link>
+          </div>
+        </div>
+        <div className="flex-1 overflow-y-auto p-2 space-y-6">
+          {/* Chat Messages */}
+          <div className="max-w-3xl mx-auto space-y-6">
+            
+            {/* User Message */}
+            <div className="flex justify-end">
+              <div className="bg-primary text-primary-foreground rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%]">
+                <p className="text-sm">What is quantum computing?</p>
+              </div>
+            </div>
+
+            {/* Assistant Message */}
+            <div className="flex justify-start">
+              <div className="bg-muted rounded-2xl rounded-tl-sm px-4 py-3 max-w-[85%]">
+                <p className="text-sm leading-relaxed">Quantum computing is a type of computation that harnesses quantum mechanical phenomena like superposition and entanglement. Unlike classical computers that use bits (0 or 1), quantum computers use quantum bits or qubits, which can exist in multiple states simultaneously.</p>
+              </div>
+            </div>
+
+            {/* User Message */}
+            <div className="flex justify-end">
+              <div className="bg-primary text-primary-foreground rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%]">
+                <p className="text-sm">Can you explain superposition in simple terms?</p>
+              </div>
+            </div>
+
+            {/* Assistant Message */}
+            <div className="flex justify-start">
+              <div className="bg-muted rounded-2xl rounded-tl-sm px-4 py-3 max-w-[85%]">
+                <p className="text-sm leading-relaxed">Think of a coin spinning in the air. While it&apos;s spinning, it&apos;s neither heads nor tails—it&apos;s both at once. That&apos;s similar to superposition in quantum computing. A qubit can be in a state of 0, 1, or both simultaneously until we measure it. This allows quantum computers to process multiple possibilities at the same time.</p>
+              </div>
+            </div>
+
+            {/* User Message */}
+            <div className="flex justify-end">
+              <div className="bg-primary text-primary-foreground rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%]">
+                <p className="text-sm">What are some practical applications?</p>
+              </div>
+            </div>
+
+            {/* Assistant Message */}
+            <div className="flex justify-start">
+              <div className="bg-muted rounded-2xl rounded-tl-sm px-4 py-3 max-w-[85%]">
+                <p className="text-sm leading-relaxed">Quantum computers show promise in several areas: drug discovery and molecular modeling, cryptography and security, financial modeling and optimization, artificial intelligence and machine learning, and climate modeling. They excel at solving complex optimization problems that would take classical computers thousands of years.</p>
+              </div>
+            </div>
+
+            {/* User Message */}
+            <div className="flex justify-end">
+              <div className="bg-primary text-primary-foreground rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%]">
+                <p className="text-sm">How far are we from having quantum computers in our homes?</p>
+              </div>
+            </div>
+
+            {/* Assistant Message */}
+            <div className="flex justify-start">
+              <div className="bg-muted rounded-2xl rounded-tl-sm px-4 py-3 max-w-[85%]">
+                <p className="text-sm leading-relaxed">We&apos;re quite far from that reality. Current quantum computers require extreme conditions—temperatures near absolute zero, isolated environments, and expert maintenance. They&apos;re also specialized for specific problems, not general-purpose computing. For the foreseeable future, quantum computers will likely remain in research labs and data centers, accessible via cloud services.</p>
+              </div>
+            </div>
+
+            {/* User Message */}
+            <div className="flex justify-end">
+              <div className="bg-primary text-primary-foreground rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%]">
+                <p className="text-sm">What&apos;s the biggest challenge in quantum computing right now?</p>
+              </div>
+            </div>
+
+            {/* Assistant Message */}
+            <div className="flex justify-start">
+              <div className="bg-muted rounded-2xl rounded-tl-sm px-4 py-3 max-w-[85%]">
+                <p className="text-sm leading-relaxed">The biggest challenge is quantum decoherence—the loss of quantum information due to environmental interference. Qubits are incredibly fragile and maintaining their quantum state long enough to perform calculations is difficult. This is why quantum computers need such extreme isolation and cooling. Researchers are working on error correction techniques and more stable qubit designs.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        {/* Input area */}
+        <div className="mb-4">
+          <div className="max-w-3xl mx-auto">
+            <div className="rounded-xl p-3 border border-primary dark:border-primary/50 bg-background/95 backdrop-blur-xl shadow-lg">
+              <div className="grid gap-1">
+                <Textarea 
+                  placeholder="Ask Daga anything" 
+                  className="min-h-[40px] shadow-none border-none text-left w-full text-secondary-foreground/85 resize-none" 
+                />
+                <div className="flex items-center justify-between">
+                  <button className="text-sm rounded-xl px-3 py-2 bg-foreground/10 text-foreground/70 dark:text-foreground/60 hover:bg-foreground/15 hover:text-foreground dark:hover:text-foreground/90 flex items-center gap-2 transition-colors cursor-pointer">
+                    <Paperclip className="h-4 w-4"/>
+                    <span>Attach image(s)</span>
+                  </button>  
+                  <Button>
+                    <ArrowUp className="h-4 w-4"/>
+                  </Button>  
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="h-[80vh] overflow-y-auto pb-40">
-        {/* Respons of element */}
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis nam repellat exercitationem sunt vel porro ipsum in error sapiente nihil deleniti ab tenetur rem tempora cumque, at cupiditate voluptatum consequuntur, dolor voluptatibus magni! Quod vero, eius aut laboriosam porro ipsum aliquid veniam! Natus similique accusantium, tempore accusamus commodi repellendus consequatur inventore fugiat vero? Asperiores reiciendis saepe fugit! Voluptatem consequuntur nemo enim officiis. Voluptatum pariatur dolorem laudantium asperiores! Est, illum. Dolorem quisquam quae reprehenderit numquam, voluptatum iure cum assumenda, quod officiis rem corporis? Aliquid, eius hic. Iusto consequatur impedit nam. Repellat maiores delectus officia exercitationem aliquam numquam corrupti aperiam enim rerum ex labore, dicta praesentium pariatur corporis suscipit est impedit tenetur earum possimus necessitatibus itaque sit ipsa sed! Vero, fugit. Saepe rem, ea ipsa dolorum corrupti eum expedita, libero eveniet facilis, in aliquam distinctio temporibus error. Magni exercitationem, eum vel natus voluptatibus ratione accusamus recusandae, necessitatibus veritatis delectus eius omnis laudantium? Architecto qui perspiciatis officiis aperiam est vitae veritatis saepe iusto? Debitis est consectetur quibusdam repudiandae quas id, cumque ratione modi! Atque enim omnis illum maxime laborum unde voluptatem sunt nihil modi, natus tempora error delectus consequuntur autem esse? Ex, vitae? Dicta culpa maiores cum laborum aperiam odit quis soluta distinctio voluptatem totam quae possimus fuga nam animi a, sint quisquam dolorem! Ipsa aut eos alias expedita praesentium optio omnis qui delectus velit mollitia! A asperiores unde porro modi corrupti eum harum nesciunt maxime, blanditiis id officiis nam tempore quo dolore excepturi dolor deserunt possimus molestias sed neque atque. Quo sapiente, quas eius facere minus reiciendis possimus deleniti blanditiis doloribus tenetur, id quod accusamus laboriosam molestiae ex nihil fugiat. Iste, consequatur! Dolor aliquid ratione nostrum asperiores modi doloribus enim, harum vitae ullam. Odit esse dolor laborum aspernatur! Minus vel, laborum debitis mollitia rerum iure fugit molestias facere nostrum alias quis illo? Impedit, esse possimus? Quam nobis doloremque esse labore distinctio quos excepturi id sed in, cum ullam quia corrupti assumenda repellendus aut necessitatibus. Error, necessitatibus laboriosam exercitationem ipsam rerum explicabo dolorum qui laborum impedit eveniet! Ut tenetur, voluptatum quos quibusdam dicta distinctio totam explicabo praesentium velit maxime alias aut tempora hic. Molestiae voluptatum saepe fugiat debitis quaerat illo quibusdam animi laudantium pariatur delectus quae placeat architecto quidem ipsa ab exercitationem excepturi voluptatibus, cupiditate incidunt accusamus ad et ratione repellendus natus! Quam, rem dolores. Sed, blanditiis delectus facilis atque itaque minus quisquam culpa sapiente tempore quaerat, aut voluptatum. Doloremque, alias labore ipsa quisquam nam non nesciunt atque numquam tempore quidem porro odit quam impedit cum consequuntur exercitationem eveniet neque voluptatem autem quod? Cumque natus modi in quis expedita deleniti beatae praesentium corrupti velit quibusdam sit molestiae enim, tempora quia! Suscipit non molestiae eum odio! Sit cum hic deserunt soluta officia harum inventore, sequi, voluptate blanditiis quos consequuntur dolore qui dolores error ratione reprehenderit ut impedit voluptatibus culpa obcaecati! Rerum eveniet doloremque, atque natus tempora doloribus nobis perferendis deleniti suscipit? Saepe illum iure rerum cum ipsa cumque consequatur, eius deserunt facilis. Excepturi ex sit libero dolor saepe officiis aperiam veritatis accusantium delectus est, eius dolore ratione sint, quidem vel voluptatem animi maiores minus voluptatum a nostrum sequi optio. Ratione laborum nulla quos nobis vitae amet exercitationem consequuntur reprehenderit modi natus perspiciatis, debitis voluptatum sit vel eligendi eveniet veniam at corrupti. Autem, tempore aliquam? Et, mollitia officia doloremque similique alias vel eum obcaecati voluptates ex dolorum ipsa minus eveniet error reiciendis architecto laudantium dicta quis minima sunt deserunt quod, fugit ratione harum doloribus. Ipsam amet, delectus, quos impedit harum eius cupiditate libero illo sed error eveniet aperiam quam fugit dolore! Eos asperiores beatae vel dignissimos perferendis optio sit consequatur sequi illum, quod qui excepturi enim voluptatum, provident natus praesentium necessitatibus dolorem molestiae consequuntur quisquam laboriosam. Nihil atque quae deserunt nostrum ullam accusantium doloremque ad porro quis rem. Iusto, placeat? Nesciunt officia numquam sapiente hic perspiciatis tenetur rem dolore iure veniam tempora, est odio repellendus dicta optio labore aperiam, harum delectus dignissimos amet rerum illum non unde incidunt suscipit. Laudantium deleniti perferendis fugiat ab tempora, architecto deserunt quas vero eaque ratione aspernatur maxime dicta, nostrum facere amet asperiores unde veritatis harum. Ipsa fugiat consequatur dolorem, fugit sequi explicabo, quibusdam dolorum placeat accusantium sed quia. Saepe quos, aut, alias ducimus autem atque illo aliquam eveniet cum molestias quod. Sunt repellendus illo labore voluptas necessitatibus ab deleniti perferendis maiores, ullam quis nemo doloribus doloremque nesciunt magni sequi excepturi incidunt eius? Consequatur ex, animi in, totam deleniti at dolorem, repudiandae minima quis facere fuga? Laborum, perspiciatis sed? Dicta voluptatem molestias, aliquam quas esse fugiat excepturi vero alias suscipit sed, impedit modi sit similique tempora eum odit ullam illum voluptatum consequuntur aspernatur quisquam culpa ipsa blanditiis. Unde perferendis quis sapiente cumque eaque tempore voluptates nostrum dolore delectus dolorum, quidem voluptate quaerat id, beatae quas. Inventore reiciendis minima eos possimus! Alias sunt repudiandae praesentium quasi ut accusantium doloribus, temporibus veniam reprehenderit deserunt placeat earum nam at eius corrupti iste eveniet voluptate harum numquam voluptatem. Pariatur sunt quas vitae mollitia ut voluptatibus et officiis fugiat, harum impedit, architecto veritatis numquam eligendi accusamus ipsam! Minus amet aliquid hic voluptatum consequuntur labore eveniet, praesentium laudantium. Assumenda, placeat. Molestiae accusamus voluptatum ab quo, labore consequatur id et, recusandae, sit modi quos tempore. Minima id error voluptatum hic molestiae quia inventore maxime sapiente soluta numquam? Necessitatibus et tempora est dolorem nesciunt neque exercitationem officia nobis nam facere recusandae ex, quos nulla. Totam soluta voluptate in quos fuga sunt. Voluptatem atque fugit accusamus ducimus magnam porro maxime deleniti nostrum voluptatibus saepe velit id dolorum soluta corrupti tempore quo ex accusantium, necessitatibus cumque! Quam, temporibus ex! Repellat explicabo nihil voluptatibus consequuntur? Ab, sed quidem, blanditiis vel inventore obcaecati laboriosam vero eum commodi doloremque voluptatem voluptate repellendus sapiente similique atque, sequi perferendis dolores quas accusamus harum. Cupiditate libero quia numquam? Sapiente magni, necessitatibus deleniti pariatur ducimus dignissimos possimus similique est veniam non amet inventore, optio vel hic totam id minima recusandae sit, expedita voluptas. Saepe dolorum nemo at minima ea omnis, possimus tempore ratione iusto maxime reiciendis pariatur, excepturi vel illo provident! Recusandae reprehenderit odit voluptatem pariatur nisi.
-      </div>
-    </div>
-   </div>
   );
 }
