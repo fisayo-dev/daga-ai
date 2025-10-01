@@ -6,7 +6,8 @@ import Link from "next/link";
 export default function Home() {
   return (
       <div className="flex flex-col h-screen">
-        <div className="flex justify-between items-center w-full py-4 px-6">
+        {/* Header */}
+        <div className="flex justify-between items-center w-full py-4 px-4 md:px-6">
           <span>Explain Quantum Computing</span>
           <div className="flex items-center gap-2">
             <Link href="/login">
@@ -14,7 +15,8 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <div className="flex-1 overflow-y-auto px-2 py-3 space-y-6">
+        {/* Chat section */}
+        <div className="custom-scrollbar flex-1 overflow-y-auto bg-transparent px-6 md:px-0 py-3 space-y-6">
           {/* Chat Messages */}
           <div className="max-w-3xl mx-auto space-y-6">
             
@@ -91,7 +93,7 @@ export default function Home() {
           </div>
         </div>
         {/* Input area */}
-        <div className="m-4">
+        <div className="px-4 md:px-6 pb-6 bg-transparent">
           <div className="max-w-3xl mx-auto">
             <div className="rounded-xl p-3 border border-primary dark:border-primary/50 bg-background/95 backdrop-blur-xl shadow-lg">
               <div className="grid gap-1">
