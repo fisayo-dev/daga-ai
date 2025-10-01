@@ -127,6 +127,10 @@ body {
   font-family: "Bricolage Grotesque" !important;
 }
 
+.app-container {
+  @apply container mx-auto xl:px-[4rem] px-5;
+}
+
 .custom-scrollbar{
   scrollbar-width: thin;
 }
