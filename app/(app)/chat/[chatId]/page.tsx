@@ -7,7 +7,7 @@ export default function Home() {
   return (
       <div className="flex flex-col h-screen">
         {/* Header */}
-        <div className="flex justify-between items-center w-full py-4 px-4 md:px-6">
+        <div className="h-[3.8rem] flex justify-between items-center w-full px-4 md:px-6">
           <span>Explain Quantum Computing</span>
           <div className="flex items-center gap-2">
             <Link href="/login">
@@ -16,7 +16,7 @@ export default function Home() {
           </div>
         </div>
         {/* Chat section */}
-        <div className="custom-scrollbar flex-1 overflow-y-auto bg-transparent px-6 md:px-0 py-3 space-y-6">
+        <div className="flex-1 overflow-y-auto bg-transparent px-6 py-6 space-y-6">
           {/* Chat Messages */}
           <div className="max-w-3xl mx-auto space-y-6">
             
