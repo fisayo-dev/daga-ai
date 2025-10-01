@@ -12,57 +12,98 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar"
 import Link from "next/link"
+import Image from "next/image"
+import { Input } from "./ui/input"
 
-// Menu items.
-const items = [
+// Fake AI chat prompts
+const chatItems = [
   {
-    title: "Home",
+    title: "Explain quantum computing",
     url: "#",
-    icon: Home,
+    preview: "Can you explain quantum computing in simple terms?",
   },
   {
-    title: "Inbox",
+    title: "Write a Python function",
     url: "#",
-    icon: Inbox,
+    preview: "Help me write a function to sort an array",
   },
   {
-    title: "Calendar",
+    title: "Marketing strategy ideas",
     url: "#",
-    icon: Calendar,
+    preview: "What are some effective marketing strategies for...",
   },
   {
-    title: "Search",
+    title: "Debug my React code",
     url: "#",
-    icon: Search,
+    preview: "I'm getting an error in my useEffect hook",
   },
   {
-    title: "Settings",
+    title: "Recipe suggestions",
     url: "#",
-    icon: Settings,
+    preview: "What can I make with chicken and vegetables?",
+  },
+  {
+    title: "Learn TypeScript basics",
+    url: "#",
+    preview: "What are the key differences between TS and JS?",
+  },
+  {
+    title: "SQL query optimization",
+    url: "#",
+    preview: "How can I optimize this database query?",
+  },
+  {
+    title: "Creative writing prompt",
+    url: "#",
+    preview: "Write a short story about a time traveler",
+  },
+  {
+    title: "CSS flexbox help",
+    url: "#",
+    preview: "How do I center a div using flexbox?",
+  },
+  {
+    title: "Business plan outline",
+    url: "#",
+    preview: "Help me create a business plan for a startup",
   },
 ]
 
 function AppSidebar() {
   return (
     <Sidebar>
-      <SidebarContent>
-        <SidebarGroup>
-            <div className="px-2 py-10 flex justify-between">
-                <div className="flex items-center gap-2">
-                    <AtomIcon />
-                    <h2 className="text-xl font-bold">Daga AI</h2>
-                </div>
-                <SidebarTrigger />
+      <SidebarContent className="bg-background">
+        <div className="p-4 flex justify-between items-center border-b border-border">
+            <div className="flex items-center gap-2">
+                <AtomIcon className="text-primary" />
+                <h2 className="text-2xl font-bold text-foreground">Daga AI</h2>
             </div>
-            
-            <SidebarGroupContent>
-                <SidebarMenu className="px-2">
-                {items.map((item) => (
+            <SidebarTrigger size="default"/>
+        </div>
+        <div className="mx-4 mt-4 border border-border rounded-xl p-2 flex items-center gap-2 bg-muted/50">
+            <Search className="h-5 w-5 text-muted-foreground"/>
+            <Input 
+              placeholder="Search chats..." 
+              className="h-full p-0 bg-transparent w-full border-0 focus-visible:ring-0 focus-visible:ring-offset-0 placeholder:text-muted-foreground" 
+            />
+        </div>
+        <SidebarGroup className="px-4 py-4 flex-1 overflow-hidden">
+            <SidebarGroupContent className="h-full overflow-y-auto custom-scrollbar">
+                <SidebarMenu className="space-y-1">
+                {chatItems.map((item) => (
                     <SidebarMenuItem key={item.title}>
-                        <SidebarMenuButton asChild  className="p-4 h-12">
-                            <Link href={item.url}>
-                                <item.icon />
-                                <span>{item.title}</span>
+                        <SidebarMenuButton 
+                          asChild 
+                          size={null} 
+                          className="p-3 rounded-xl hover:bg-muted transition-colors group"
+                        >
+                            <Link href={item.url} className="flex flex-col items-start gap-1">
+                                <span className="font-medium text-foreground group-hover:text-primary transition-colors">
+                                  {item.title}
+                                </span>
+                                <span className="text-xs text-muted-foreground line-clamp-1">
+                                  {item.preview}
+                                </span>
                             </Link>
                         </SidebarMenuButton>
                     </SidebarMenuItem>
