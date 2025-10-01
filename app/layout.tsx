@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={` antialiased`}
+        className={`antialiased`}
       >
         <ThemeProvider
             attribute="class"
@@ -28,7 +28,6 @@ export default function RootLayout({
             <SidebarProvider>
               <DagaSidebar />
               <main className="w-full">
-                {/* <SidebarTrigger /> */}
                 {children}
               </main>
             </SidebarProvider>
