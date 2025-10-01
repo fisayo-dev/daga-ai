@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import DagaSidebar  from "@/components/daga-sidebar"
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,7 +25,13 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <SidebarProvider>
+              <DagaSidebar />
+              <main>
+                {/* <SidebarTrigger /> */}
+                {children}
+              </main>
+            </SidebarProvider>
           </ThemeProvider>
       </body>
     </html>
