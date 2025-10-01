@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import "./(app)/globals.css";
+import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { SidebarProvider } from "@/components/ui/sidebar";
-import DagaSidebar  from "@/components/daga-sidebar"
 
 export const metadata: Metadata = {
   title: "Daga AI",
-  description: "Your genereal AI-chat bot",
+  description: "Your general AI-chat bot",
 };
 
 export default function RootLayout({
@@ -16,17 +14,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`antialiased`}
-      >
-        <ThemeProvider 
-         attribute="class"
+      <body>
+        <ThemeProvider
+            attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange 
-          >
-                {children}
-          </ThemeProvider> 
+        >{children}</ThemeProvider>
       </body>
     </html>
   );
