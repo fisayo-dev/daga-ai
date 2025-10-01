@@ -1,18 +1,16 @@
-import { AtomIcon, Calendar, Home, Inbox, Search, Settings } from "lucide-react"
+import { AtomIcon, Search} from "lucide-react"
 
 import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
 import Link from "next/link"
-import Image from "next/image"
 import { Input } from "./ui/input"
 
 // Fake AI chat prompts
@@ -78,31 +76,28 @@ function AppSidebar() {
                 <AtomIcon className="text-primary" />
                 <h2 className="text-2xl font-bold text-foreground">Daga AI</h2>
             </div>
-            <SidebarTrigger size="default"/>
+            <SidebarTrigger/>
         </div>
         <div className="mx-4 mt-4 border border-border rounded-xl p-2 flex items-center gap-2 bg-muted/50">
             <Search className="h-5 w-5 text-muted-foreground"/>
             <Input 
               placeholder="Search chats..." 
-              className="h-full p-0 bg-transparent w-full border-0 focus-visible:ring-0 focus-visible:ring-offset-0 placeholder:text-muted-foreground" 
+              className="h-full rounded-none p-0 bg-transparent shadow-none w-full border-0 focus-visible:ring-0 focus-visible:ring-offset-0 placeholder:text-muted-foreground" 
             />
         </div>
         <SidebarGroup className="px-4 py-4 flex-1 overflow-hidden">
             <SidebarGroupContent className="h-full overflow-y-auto custom-scrollbar">
                 <SidebarMenu className="space-y-1">
-                {chatItems.map((item) => (
-                    <SidebarMenuItem key={item.title}>
+                {chatItems.map((item, index) => (
+                    <SidebarMenuItem key={index}>
                         <SidebarMenuButton 
-                          asChild 
+                          asChild
                           size={null} 
-                          className="p-3 rounded-xl hover:bg-muted transition-colors group"
+                          className="p-3 rounded-xl hover:bg-muted transition-colors"
                         >
-                            <Link href={item.url} className="flex flex-col items-start gap-1">
-                                <span className="font-medium text-foreground group-hover:text-primary transition-colors">
+                            <Link href={`/chat/${index}`} className="flex flex-col items-start gap-1">
+                                <span className="font-medium text-foreground transition-colors">
                                   {item.title}
-                                </span>
-                                <span className="text-xs text-muted-foreground line-clamp-1">
-                                  {item.preview}
                                 </span>
                             </Link>
                         </SidebarMenuButton>
