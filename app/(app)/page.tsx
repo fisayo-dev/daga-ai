@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -6,8 +7,9 @@ export default function Home() {
     <div className="flex justify-between items-center w-full">
       <span>Explain Quantum Computing</span>
       <div className="flex items-center gap-2">
-        <Button>Login</Button>
-        <Button variant="outline">Signup</Button>
+        <Link href="/login">
+          <Button>Signup / Login</Button>
+        </Link>
       </div>
     </div>
    </div>

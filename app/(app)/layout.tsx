@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./(app)/globals.css";
+import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import DagaSidebar  from "@/components/daga-sidebar"
@@ -19,14 +19,19 @@ export default function RootLayout({
       <body
         className={`antialiased`}
       >
-        <ThemeProvider 
-         attribute="class"
+        <ThemeProvider
+            attribute="class"
             defaultTheme="system"
             enableSystem
-            disableTransitionOnChange 
+            disableTransitionOnChange
           >
+            <SidebarProvider>
+              <DagaSidebar />
+              <main className="w-full">
                 {children}
-          </ThemeProvider> 
+              </main>
+            </SidebarProvider>
+          </ThemeProvider>
       </body>
     </html>
   );
