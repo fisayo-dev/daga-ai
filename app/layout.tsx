@@ -27,7 +27,7 @@ export default function RootLayout({
           >
             <SidebarProvider>
               <DagaSidebar />
-              <main>
+              <main className="w-full">
                 {/* <SidebarTrigger /> */}
                 {children}
               </main>
