@@ -85,8 +85,8 @@ function AppSidebar() {
               className="h-full rounded-none p-0 bg-transparent shadow-none w-full border-0 focus-visible:ring-0 focus-visible:ring-offset-0 placeholder:text-muted-foreground" 
             />
         </div>
-        <SidebarGroup className="px-4 py-4 flex-1 overflow-hidden">
-            <SidebarGroupContent className="h-full overflow-y-auto custom-scrollbar">
+        <SidebarGroup className="py-4 flex-1 overflow-hidden">
+            <SidebarGroupContent className="px-2 h-full overflow-y-auto custom-scrollbar">
                 <SidebarMenu className="space-y-1">
                 {chatItems.map((item, index) => (
                     <SidebarMenuItem key={index}>
@@ -95,11 +95,14 @@ function AppSidebar() {
                           size={null} 
                           className="p-3 rounded-xl hover:bg-muted transition-colors"
                         >
+                          <div className="flex items-center gap-2">
+                            <Search/>
                             <Link href={`/chat/${index}`} className="flex flex-col items-start gap-1">
-                                <span className="font-medium text-foreground transition-colors">
+                                <span className="text-foreground transition-colors">
                                   {item.title}
                                 </span>
                             </Link>
+                          </div>
                         </SidebarMenuButton>
                     </SidebarMenuItem>
                 ))}
