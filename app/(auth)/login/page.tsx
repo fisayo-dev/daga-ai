@@ -1,4 +1,5 @@
 "use client"
+import { signInUser } from '@/actions/auth';
 import { Button } from '@/components/ui/button';
 import { Loader2Icon } from 'lucide-react';
 import Link from 'next/link';
@@ -6,10 +7,14 @@ import React, { useState } from 'react';
 
 const LoginPage: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false)
-  const handleGoogleLogin = () => {
-    setLoading(true)
-    // console.log('Initiating Google OAuth login...');
-    // alert('In production, this would redirect to Google OAuth');
+  const handleGoogleLogin = async () => {
+    try {
+      await signInUser();
+    } catch(err) {
+      console.log('Error:', err)
+    } finally {
+      setLoading(true)
+    }
     setLoading(false)
   };
 
@@ -63,7 +68,7 @@ const LoginPage: React.FC = () => {
             <p>Copyright 2025 </p>
             <div className="flex items-center justify-center gap-2 mt-1">
               <Link href="#" className="text-primary/80 hover:text-primary font-medium">
-                Appwrtie Hacktoberfest hackathon
+                Appwrite Hacktoberfest hackathon
               </Link>
             </div>
           </div>
