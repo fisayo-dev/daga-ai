@@ -23,7 +23,7 @@ const ChatHeader = () => {
         console.log(session)
         setUserSession(session); // Handle null/undefined cases
       } catch (err) {
-        console.error("Failed to fetch session:", err);
+        // console.error("Failed to fetch session:", err);
         toast.error("Failed to load user session. Please try again.");
       } finally {
         setIsLoading(false);

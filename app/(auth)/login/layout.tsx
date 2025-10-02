@@ -10,5 +10,5 @@ export default function LoginLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <>{children}</>; // Just passes through—no sidebar
+  return <div suppressHydrationWarning>{children}</div>; // Just passes through—no sidebar
 }
