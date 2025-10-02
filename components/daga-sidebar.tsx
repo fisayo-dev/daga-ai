@@ -8,7 +8,6 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarTrigger,
 } from "@/components/ui/sidebar"
 import Link from "next/link"
 import { Input } from "./ui/input"
@@ -72,7 +71,7 @@ function AppSidebar() {
   return (
     <Sidebar>
       <SidebarContent className="bg-background">
-        <div className="p-4 flex justify-between items-center border-b border-border">
+        <div className="p-4 flex justify-between items-center ">
             <div className="flex items-center gap-2">
                 <AtomIcon className="text-primary" />
                 <h2 className="text-2xl font-bold text-foreground">Daga AI</h2>
@@ -83,22 +82,22 @@ function AppSidebar() {
               </Button>
             </Link>
         </div>
-        <div className="mx-4 mt-4 border border-border rounded-xl p-2 flex items-center gap-2 bg-muted/50">
-            <Search className="h-5 w-5 text-muted-foreground"/>
+        <div className="mx-4 mt-4 bg-primary/35 dark:bg-foreground/35 rounded-xl p-3 flex items-center gap-2">
+            <Search className="h-5 w-5 "/>
             <Input 
               placeholder="Search chats..." 
-              className="h-full rounded-none p-0 bg-transparent shadow-none w-full border-0 focus-visible:ring-0 focus-visible:ring-offset-0 placeholder:text-muted-foreground" 
+              className="h-full rounded-none text-foreground placeholder:text-foreground/50 p-0 bg-transparent shadow-none w-full border-0 " 
             />
         </div>
         <SidebarGroup className="py-4 flex-1 overflow-hidden">
             <SidebarGroupContent className="px-2 h-full overflow-y-auto custom-scrollbar">
-                <SidebarMenu className="space-y-1">
+                <SidebarMenu>
                 {chatItems.map((item, index) => (
                     <SidebarMenuItem key={index}>
                         <SidebarMenuButton 
                           asChild
                           size={null} 
-                          className="p-3 rounded-xl hover:bg-muted transition-colors"
+                          className="p-3 rounded-xl hover:bg-primary/35 dark:hover:bg-foreground/35"
                         >
                           <div className="flex items-center gap-2">
                             <Search/>
