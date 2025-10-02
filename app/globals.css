@@ -45,8 +45,8 @@
 
 :root {
   --radius: 0.625rem;
-  /* Light mode - Yellow theme */
-  --color-background: oklch(0.95 0.10 90); /* Light yellow background */
+  /* Light mode - White background with yellow theme */
+  --color-background: oklch(1 0 1); /* White background */
   --foreground: oklch(0.20 0.02 90); /* Darker foreground for contrast */
   --card: oklch(0.98 0.08 90); /* Lighter yellow for cards */
   --card-foreground: oklch(0.20 0.02 90);
@@ -81,9 +81,9 @@
 
 .dark {
   /* Dark mode - Black theme */
-  --color-background: oklch(0.15 0 0); /* Black background */
+  --color-background: oklch(6.086% 0.02498 29.223); /* Black background */
   --foreground: oklch(0.95 0.01 90); /* Light yellow foreground for contrast */
-  --card: oklch(0.20 0.01 0); /* Darker black for cards */
+  --card: oklch(8.839% 0.03673 351.222); /* Darker black for cards */
   --card-foreground: oklch(0.95 0.01 90);
   --popover: oklch(0.20 0.01 0); /* Darker black for popovers */
   --popover-foreground: oklch(0.95 0.01 90);
@@ -96,7 +96,7 @@
   --accent: oklch(0.82 0.18 90); /* Yellow for accent */
   --accent-foreground: oklch(0.95 0.01 90);
   --destructive: oklch(0.704 0.191 22.216); /* Unchanged */
-  --border: oklch(0.30 0.02 0); /* Darker black border */
+  --border: oklch(8.44% 0.03464 29.223); /* Darker black border */
   --input: oklch(0.25 0.02 0); /* Darker black input */
   --ring: oklch(0.80 0.20 90); /* Yellow ring */
   --chart-1: oklch(0.80 0.20 90); /* Yellow for chart-1 */
