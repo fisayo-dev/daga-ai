@@ -3,8 +3,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { ArrowUp, Paperclip } from "lucide-react";
-import Link from "next/link";
 import { useState } from "react";
+import ChatHeader from "@/components/ChatHeader";
 
 interface LLMOption {
   value: string;
@@ -25,14 +25,7 @@ export default function Home() {
   return (
    <div className="p-2 md:p-6">
     <div className="app-container grid gap-4">
-      <div className="flex justify-between items-center w-full">
-        <span>Explain Quantum Computing</span>
-        <div className="flex items-center gap-2">
-          <Link href="/login">
-            <Button>Signup / Login</Button>
-          </Link>
-        </div>
-      </div>
+     <ChatHeader />
       <div className="grid gap-6 h-[80vh] place-content-center">
         {/* Response of element */}
         <h2 className="text-5xl xl:text-4xl text-center font-medium">Welcome There!</h2>

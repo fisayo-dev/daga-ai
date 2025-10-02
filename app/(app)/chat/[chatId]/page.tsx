@@ -1,20 +1,13 @@
+import ChatHeader from "@/components/ChatHeader";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { ArrowUp, Paperclip } from "lucide-react";
-import Link from "next/link";
 
 export default function Home() {
   return (
       <div className="flex flex-col h-screen">
         {/* Header */}
-        <div className="h-[3.8rem] flex justify-between items-center w-full px-4 md:px-6">
-          <span>Explain Quantum Computing</span>
-          <div className="flex items-center gap-2">
-            <Link href="/login">
-              <Button>Signup / Login</Button>
-            </Link>
-          </div>
-        </div>
+       <ChatHeader />
         {/* Chat section */}
         <div className="flex-1 overflow-y-auto bg-transparent px-6 py-6 space-y-6">
           {/* Chat Messages */}
