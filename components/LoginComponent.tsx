@@ -1,14 +1,16 @@
 "use client"
-import { signInUser } from '@/actions/auth'
+// import { signInUser } from '@/actions/auth'
 import { Link, Loader2Icon } from 'lucide-react'
 import { useState } from 'react'
 import { Button } from './ui/button'
+import { createSession } from '@/utils/auth'
+import { OAuthProvider } from 'appwrite'
 
 const LoginComponent = () => {
      const [loading, setLoading] = useState<boolean>(false)
       const handleGoogleLogin = async () => {
         try {
-          await signInUser();
+          await createSession(OAuthProvider.Google);
         } catch(err) {
           console.log('Error:', err)
         } finally {
