@@ -25,6 +25,7 @@ export async function getUser() {
 
 // Initiate OAuth2 session
 export async function createSession(provider: OAuthProvider) {
+  console.log("Provider from server: ", provider);
   try {
     const { account } = await createSessionClient(); // No session token needed for OAuth2 initiation
     const successUrl = `${process.env.NEXT_PUBLIC_URL}/`;
