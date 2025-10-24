@@ -25,14 +25,15 @@ export async function getUser() {
 
 // Initiate OAuth2 session
 export async function createSession(provider: OAuthProvider) {
-  console.log("Provider from server: ", provider);
+  const trimmedProvider = provider.trim() as OAuthProvider
+  console.log("Provider from server: ", trimmedProvider);
   try {
     const { account } = await createSessionClient(); // No session token needed for OAuth2 initiation
     const successUrl = `${process.env.NEXT_PUBLIC_URL}/`;
     const failureUrl = `${process.env.NEXT_PUBLIC_URL}/login`;
 
     // Initiate OAuth2 flow (this redirects the user to the provider's login page)
-    await account.createOAuth2Token(provider, successUrl, failureUrl);
+    await account.createOAuth2Token(trimmedProvider, successUrl, failureUrl);
 
     // Note: The redirect happens automatically, so no code executes after this
   } catch (error) {
